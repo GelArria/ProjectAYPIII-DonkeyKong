@@ -1,28 +1,26 @@
 package DefinitiveAYPIII_Proyect_ver1.jade;
 
-import DefinitiveAYPIII_Proyect_ver1.colisiones.AABB;
 import DefinitiveAYPIII_Proyect_ver1.components.Sprite;
 import DefinitiveAYPIII_Proyect_ver1.components.SpriteRenderer;
 import DefinitiveAYPIII_Proyect_ver1.components.Spritesheet;
 import org.joml.Vector2f;
-import org.joml.Vector3f;
-import org.joml.Vector4f;
 import DefinitiveAYPIII_Proyect_ver1.util.AssetPool;
-import java.util.ArrayList;
-
-import static org.lwjgl.glfw.GLFW.*;
 
 public class LevelEditorScene extends Scene {
 
-    //Los objetos del crean el escenario
-    private GameObject[][] Fondo = (GameObject[][])new GameObject[9][14];
-    private GameObject[][] FondoO = (GameObject[][])new GameObject[9][14]; 
-    private GameObject[] Piso1 = (GameObject[])new GameObject[30]; 
+    //El fondo
+    private GameObject[][] Fondo = (GameObject[][])new GameObject[8][13];
+    private GameObject[][] FondoO = (GameObject[][])new GameObject[8][13]; 
+   
+    
+    //El escenario + Jugador
+    public GameObject[] Escenario = (GameObject[])new GameObject[28]; 
+    private GameObject Player;
     //
     
     
     
-    private Spritesheet sprites;
+    public Spritesheet sprites;
     private String SpritesFolder = "C:\\Users\\Miguel\\Documents\\NetBeansProjects\\DefinitiveAYPIII_Proyect_ver1\\src\\main\\java\\DefinitiveAYPIII_Proyect_ver1\\assets\\images\\";
     private String ShadersFolder = "C:\\Users\\Miguel\\Documents\\NetBeansProjects\\DefinitiveAYPIII_Proyect_ver1\\src\\main\\java\\DefinitiveAYPIII_Proyect_ver1\\assets\\shaders\\";
     
@@ -34,7 +32,7 @@ public class LevelEditorScene extends Scene {
     public void init() {
         loadResources();
 
-        this.camera = new Camera(new Vector2f(-250, 0));
+        this.camera = new Camera(new Vector2f(0, 0));
 
         generarFondo();
 
@@ -51,10 +49,11 @@ public class LevelEditorScene extends Scene {
     @Override
     public void update(float dt) {
 
-        for (GameObject go : this.gameObjects) {
-            go.update(dt);
-        }
-
+        this.Player.update(dt);
+        for (int i = 0 ; i < this.Escenario.length ; i++) {
+            this.Escenario[i].update(dt);
+        } 
+        
         this.renderer.render();
     }
     
@@ -62,35 +61,38 @@ public class LevelEditorScene extends Scene {
         
         sprites = AssetPool.getSpritesheet(SpritesFolder+"spritesheet.png");
 
-        float Acarreo = -100;
-        for(int i = 0; i < 9 ; i++){
+        //El fondo como sera estatico entonces no se estara actualizando...
+        
+        float Acarreo = 0;
+        for(int i = 0; i < 8 ; i++){
             Acarreo += 100;
-            for(int j = 0; j < 14 ; j++){
+            for(int j = 0; j < 13 ; j++){
                 
-                //A�adimos las texturas del fondo
-                Fondo[i][j] = new GameObject("Object "+"["+i+"]["+j+"]", new Transform(new Vector2f(-250+(j*100), 570-Acarreo),new Vector2f(100, 100)), 1, false);
-                //A�ade el componente del sprite
-                Fondo[i][j].addComponent(new SpriteRenderer(new Sprite(AssetPool.getTexture(SpritesFolder+"Fondo1.png"))));
+                //Añadimos las texturas del fondo
+                Fondo[i][j] = new GameObject("Object "+"["+i+"]["+j+"]", new Transform(new Vector2f(j*100, 720-Acarreo),new Vector2f(100, 100)), 1, false,new SpriteRenderer(new Sprite(AssetPool.getTexture(SpritesFolder+"Fondo1.png"))));
+                //Añade el objecto a la Escena
                 this.addGameObjectToScene(Fondo[i][j]);
                 
-                //Ahora A�adimos el filtro oscuro de fondo
-                FondoO[i][j] = new GameObject("ObjectO "+"["+i+"]["+j+"]", new Transform(new Vector2f(-250+(j*100), 570-Acarreo),new Vector2f(100, 100)), 2, false);
-                //A�ade el componente del sprite
-                FondoO[i][j].addComponent(new SpriteRenderer(new Sprite(AssetPool.getTexture(SpritesFolder+"blendImage1.png"))));
+                //Ahora Añadimos el filtro oscuro de fondo
+                FondoO[i][j] = new GameObject("ObjectO "+"["+i+"]["+j+"]", new Transform(new Vector2f(j*100, 720-Acarreo),new Vector2f(100, 100)), 2, false,new SpriteRenderer(new Sprite(AssetPool.getTexture(SpritesFolder+"blendImage1.png"))));
+                //Añade el objecto a la Escena
                 this.addGameObjectToScene(FondoO[i][j]);
                 
             }
         }
         //Piso
-        for(int i = 0; i < 30 ; i++){
-                Piso1[i] = new GameObject("Piso1 "+"["+i+"]", new Transform(new Vector2f(-200+(i*40), 100),new Vector2f(40, 32)), 6, false);
-                //A�ade el componente del sprite
-                Piso1[i].addComponent(new SpriteRenderer(new Sprite(AssetPool.getTexture(SpritesFolder+"Viga1.png"))));
-                this.addGameObjectToScene(Piso1[i]);
+        float posInicial = 90;
+        for(int i = 0; i < 28 ; i++){
+                Escenario[i] = new GameObject("Escenario", new Transform(new Vector2f(posInicial + (i*40), 100),new Vector2f(40, 40)), 6, true,new SpriteRenderer(new Sprite(AssetPool.getTexture(SpritesFolder+"Viga1.png"))));
+                
+                //Añade el objecto a la Escena
+                this.addGameObjectToScene(Escenario[i]);
         }
         
-        AABB Caja1 = new AABB(new Vector2f(0,0),new Vector2f(1,1));
-        AABB Caja2 = new AABB(new Vector2f(1,0),new Vector2f(1,1));
-                
+        Player = new GameObject("Player", new Transform(new Vector2f(100,160),new Vector2f(40, 40)), 6, true,new SpriteRenderer(sprites.getSprite(0)));
+        
+        //Añade el objecto a la Escena
+        this.addGameObjectToScene(Player);
+        
     }
 }

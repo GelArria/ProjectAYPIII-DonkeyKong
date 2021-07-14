@@ -1,19 +1,20 @@
 package DefinitiveAYPIII_Proyect_ver1.components;
-
-import DefinitiveAYPIII_Proyect_ver1.jade.Component;
+import DefinitiveAYPIII_Proyect_ver1.colisiones.AABB;
+import DefinitiveAYPIII_Proyect_ver1.jade.GameObject;
+import DefinitiveAYPIII_Proyect_ver1.jade.KeyListener;
 import DefinitiveAYPIII_Proyect_ver1.jade.Transform;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 import DefinitiveAYPIII_Proyect_ver1.renderer.Texture;
 
-public class SpriteRenderer extends Component {
-
+public class SpriteRenderer{
+    
+    public GameObject gameObject = null;
     private Vector4f color;
     private Sprite sprite;
-
     private Transform lastTransform;
     private boolean isDirty = false;
-
+    
     public SpriteRenderer(Vector4f color) {
         this.color = color;
         this.sprite = new Sprite(null);
@@ -26,19 +27,28 @@ public class SpriteRenderer extends Component {
         this.isDirty = true;
     }
 
-    @Override
     public void start() {
-        this.lastTransform = gameObject.transform.copy();
-    }
-
-    @Override
-    public void update(float dt) {
-        if (!this.lastTransform.equals(this.gameObject.transform)) {
-            this.gameObject.transform.copy(this.lastTransform);
-            isDirty = true;
+        
+        this.lastTransform = this.gameObject.transform.copy();
+        if(this.gameObject.isSolid == true){
+           System.out.println(this.gameObject.name+" Objeto Solido es Creado");
+           
+           Vector2f Center = new Vector2f(lastTransform.position.x+lastTransform.scale.x/2 , lastTransform.position.y - lastTransform.scale.y/2);
+           Vector2f halfExtent = new Vector2f(lastTransform.position.x,lastTransform.position.y);
+           this.gameObject.boundingBox = new AABB(Center,halfExtent);
+        }else{
+           this.gameObject.boundingBox = null;       
         }
     }
 
+    public void update(float dt) {   
+        
+        if (!this.lastTransform.equals(this.gameObject.transform)) {
+            this.gameObject.transform.copy(this.lastTransform);
+            isDirty = true;
+        } 
+    }
+       
     public Vector4f getColor() {
         return this.color;
     }
