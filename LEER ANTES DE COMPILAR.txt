@@ -1,0 +1,9 @@
+Primero tienes que cambiar la direccion de tus carpetas
+ de las imagenes y shader dentro del codigo a las tuyas 
+de tu compu En:
+
+ - components.Sprite.java
+ - jade.LevelEditorScene.java
+ - renderer.RenderBatch.java
+
+y listo
