@@ -1,40 +1,82 @@
-DefinitiveAYPIII_Proyect_ver1/renderer/Shader.java
- DefinitiveAYPIII_Proyect_ver1.renderer.Shader
-DefinitiveAYPIII_Proyect_ver1/components/Sprite.java
- DefinitiveAYPIII_Proyect_ver1.components.Sprite
-DefinitiveAYPIII_Proyect_ver1/renderer/Texture.java
- DefinitiveAYPIII_Proyect_ver1.renderer.Texture
-DefinitiveAYPIII_Proyect_ver1/components/FontRenderer.java
- DefinitiveAYPIII_Proyect_ver1.components.FontRenderer
-DefinitiveAYPIII_Proyect_ver1/components/Spritesheet.java
- DefinitiveAYPIII_Proyect_ver1.components.Spritesheet
-DefinitiveAYPIII_Proyect_ver1/jade/KeyListener.java
- DefinitiveAYPIII_Proyect_ver1.jade.KeyListener
-DefinitiveAYPIII_Proyect_ver1/jade/Main.java
- DefinitiveAYPIII_Proyect_ver1.jade.Main
-DefinitiveAYPIII_Proyect_ver1/jade/MouseListener.java
- DefinitiveAYPIII_Proyect_ver1.jade.MouseListener
-DefinitiveAYPIII_Proyect_ver1/jade/Camera.java
- DefinitiveAYPIII_Proyect_ver1.jade.Camera
-DefinitiveAYPIII_Proyect_ver1/util/AssetPool.java
- DefinitiveAYPIII_Proyect_ver1.util.AssetPool
-DefinitiveAYPIII_Proyect_ver1/jade/Transform.java
- DefinitiveAYPIII_Proyect_ver1.jade.Transform
-DefinitiveAYPIII_Proyect_ver1/jade/LevelScene.java
- DefinitiveAYPIII_Proyect_ver1.jade.LevelScene
-DefinitiveAYPIII_Proyect_ver1/jade/Window.java
- DefinitiveAYPIII_Proyect_ver1.jade.Window
-DefinitiveAYPIII_Proyect_ver1/jade/GameObject.java
- DefinitiveAYPIII_Proyect_ver1.jade.GameObject
-DefinitiveAYPIII_Proyect_ver1/renderer/Renderer.java
- DefinitiveAYPIII_Proyect_ver1.renderer.Renderer
-DefinitiveAYPIII_Proyect_ver1/jade/LevelEditorScene.java
- DefinitiveAYPIII_Proyect_ver1.jade.LevelEditorScene
-DefinitiveAYPIII_Proyect_ver1/colisiones/AABB.java
- DefinitiveAYPIII_Proyect_ver1.colisiones.AABB
-DefinitiveAYPIII_Proyect_ver1/renderer/RenderBatch.java
- DefinitiveAYPIII_Proyect_ver1.renderer.RenderBatch
-DefinitiveAYPIII_Proyect_ver1/components/SpriteRenderer.java
- DefinitiveAYPIII_Proyect_ver1.components.SpriteRenderer
-DefinitiveAYPIII_Proyect_ver1/jade/Scene.java
- DefinitiveAYPIII_Proyect_ver1.jade.Scene
+AYPIII_Proyect_Beta/sockets/Cliente.java
+ AYPIII_Proyect_Beta.sockets.Cliente
+AYPIII_Proyect_Beta/sockets/Servidor2.java
+ AYPIII_Proyect_Beta.sockets.Servidor2
+AYPIII_Proyect_Beta/renderer/RenderBatch.java
+ AYPIII_Proyect_Beta.renderer.RenderBatch
+AYPIII_Proyect_Beta/main/KeyListener.java
+ AYPIII_Proyect_Beta.main.KeyListener
+AYPIII_Proyect_Beta/sockets/Servidor.java
+ AYPIII_Proyect_Beta.sockets.Servidor
+AYPIII_Proyect_Beta/components/Sprite.java
+ AYPIII_Proyect_Beta.components.Sprite
+AYPIII_Proyect_Beta/renderer/Shader.java
+ AYPIII_Proyect_Beta.renderer.Shader
+AYPIII_Proyect_Beta/sockets/Actualizador.java
+ AYPIII_Proyect_Beta.sockets.Actualizador
+AYPIII_Proyect_Beta/main/Camera.java
+ AYPIII_Proyect_Beta.main.Camera
+AYPIII_Proyect_Beta/components/Spritesheet.java
+ AYPIII_Proyect_Beta.components.Spritesheet
+AYPIII_Proyect_Beta/cosas/Scoreboard.java
+ AYPIII_Proyect_Beta.cosas.Scoreboard
+AYPIII_Proyect_Beta/main/MouseListener.java
+ AYPIII_Proyect_Beta.main.MouseListener
+AYPIII_Proyect_Beta/sockets/Paquete.java
+ AYPIII_Proyect_Beta.sockets.Paquete
+AYPIII_Proyect_Beta/renderer/Texture.java
+ AYPIII_Proyect_Beta.renderer.Texture
+AYPIII_Proyect_Beta/main/Transform.java
+ AYPIII_Proyect_Beta.main.Transform
+AYPIII_Proyect_Beta/menu/Login.java
+ AYPIII_Proyect_Beta.menu.Login
+ AYPIII_Proyect_Beta.menu.Login$1
+ AYPIII_Proyect_Beta.menu.Login$10
+ AYPIII_Proyect_Beta.menu.Login$11
+ AYPIII_Proyect_Beta.menu.Login$12
+ AYPIII_Proyect_Beta.menu.Login$13
+ AYPIII_Proyect_Beta.menu.Login$14
+ AYPIII_Proyect_Beta.menu.Login$15
+ AYPIII_Proyect_Beta.menu.Login$16
+ AYPIII_Proyect_Beta.menu.Login$2
+ AYPIII_Proyect_Beta.menu.Login$3
+ AYPIII_Proyect_Beta.menu.Login$4
+ AYPIII_Proyect_Beta.menu.Login$5
+ AYPIII_Proyect_Beta.menu.Login$6
+ AYPIII_Proyect_Beta.menu.Login$7
+ AYPIII_Proyect_Beta.menu.Login$8
+ AYPIII_Proyect_Beta.menu.Login$9
+AYPIII_Proyect_Beta/colisiones/Collision.java
+ AYPIII_Proyect_Beta.colisiones.Collision
+AYPIII_Proyect_Beta/sockets/Administrador.java
+ AYPIII_Proyect_Beta.sockets.Administrador
+AYPIII_Proyect_Beta/cosas/GameObject.java
+ AYPIII_Proyect_Beta.cosas.GameObject
+AYPIII_Proyect_Beta/cosas/Escenario.java
+ AYPIII_Proyect_Beta.cosas.Escenario
+AYPIII_Proyect_Beta/renderer/Renderer.java
+ AYPIII_Proyect_Beta.renderer.Renderer
+AYPIII_Proyect_Beta/components/SpriteRenderer.java
+ AYPIII_Proyect_Beta.components.SpriteRenderer
+AYPIII_Proyect_Beta/main/Window.java
+ AYPIII_Proyect_Beta.main.Window
+AYPIII_Proyect_Beta/game/Scene.java
+ AYPIII_Proyect_Beta.game.Scene
+AYPIII_Proyect_Beta/main/Sonido.java
+ AYPIII_Proyect_Beta.main.Sonido
+AYPIII_Proyect_Beta/cosas/Entidad.java
+ AYPIII_Proyect_Beta.cosas.Entidad
+AYPIII_Proyect_Beta/game/W2.java
+ AYPIII_Proyect_Beta.game.W2
+AYPIII_Proyect_Beta/main/Main.java
+ AYPIII_Proyect_Beta.main.Main
+AYPIII_Proyect_Beta/colisiones/AABB.java
+ AYPIII_Proyect_Beta.colisiones.AABB
+AYPIII_Proyect_Beta/util/AssetPool.java
+ AYPIII_Proyect_Beta.util.AssetPool
+AYPIII_Proyect_Beta/game/W1.java
+ AYPIII_Proyect_Beta.game.W1
+AYPIII_Proyect_Beta/game/W3.java
+ AYPIII_Proyect_Beta.game.W3
+AYPIII_Proyect_Beta/game/W4.java
+ AYPIII_Proyect_Beta.game.W4
